@@ -1,0 +1,23 @@
+.menu-bar {
+  margin: 0px 20px;
+  cursor: pointer;
+  line-height: 40px;
+  font-weight: bold;
+  color: rgb(147, 143, 143);
+  text-decoration: none;
+}
+.list-style {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer {
+    background: white;
+    position: fixed;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+}
+
