@@ -41,14 +41,13 @@ const loadCategory = categoryID => {
 // display the category
 
 const displayCategory = category => {
-    console.log(category);
     
     const cardsContainer = document.getElementById('cards-container');
     // clear old card
     cardsContainer.innerHTML = ``
 
     category.forEach(news => {
-        console.log(news);
+        // console.log(news);
         // create card col
         const CardCol = document.createElement('div');
         CardCol.classList.add('col', 'card', 'p-0', 'mb-4');
@@ -59,22 +58,21 @@ const displayCategory = category => {
         </div>
         <div class="col-md-9 col-12">
           <div class="row align-content-center card-body h-100">
-            <h4 class="card-title">${news.title}</h4>
+            <h4 class="card-title">${news.title ? news.title : 'Not Found'}</h4>
             <p class="card-text">
-                ${news.details}
+                ${news.details ? news.details : 'Not Found'}
             </p>
         
             <div class="d-flex flex-wrap justify-content-between list-unstyled align-items-center mt-3">
               <div class="d-flex align-items-center pe-2">
                 <img src="${news.author.img}" style="width: 60px; height: 60px; margin-right: 18px" class="rounded-circle img-fluid">
-                <div class="d-flex align-items-center flex-column">
-                    <h5>${news.author.name}</h5>
-                    <h6>${news.author.published_date}</h6>
+                <div class="d-flex flex-column">
+                    <h5>${news.author.name ? news.author.name : 'Not Found'}</h5>
                 </div>
               </div>
               <div class="px-2">
                 <h6 class="fw-bold my-auto">
-                  <i class="fa fa-eye"></i> ${news.total_view} 
+                  <i class="fa fa-eye"></i> ${news.total_view ? news.total_view : 0} 
                 </h6>
               </div>
               <div class="px-2">
@@ -87,7 +85,7 @@ const displayCategory = category => {
                 </ul>
               </div>
               <div class="px-1">
-              <button onclick="modalDetails('11468ed61aee84de492a8b04158a22f0')" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">Show Details</button>
+              <button class="btn btn-primary fa fa-arrow-right" onclick="loadModalDetails('${news._id}')" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal"></button>
               </div>
             </div>
           </div>
@@ -101,11 +99,39 @@ const displayCategory = category => {
 
 }
 
+// modal fatch.
+const loadModalDetails = async newsID => {
+    const url = `https://openapi.programming-hero.com/api/news/${newsID}`
 
+    const res = await fetch(url);
+    const data = await res.json();
 
+    displayModalDetails(data.data[0]);
 
+}
 
-{/* <div class="col card p-0 mb-4">
-                  
+// modal window function
 
-</div> */}
+const displayModalDetails = userID => {
+    console.log(userID);
+
+    const modalContainer = document.getElementById('modal-contents');
+    modalContainer.innerHTML = `
+        <div id="news-details-img" class="modal-header">
+            <h3>${userID.author.name}</h3>
+        </div>
+        <span class="my-3 ms-3" >Published: 
+            <h6 class="d-inline">${userID.author.published_date ? userID.author.published_date : 'No data found'}</h6>
+        </span>
+            <img class="img-fluid w-100 h-50 p-3 pt-5" src="${userID.thumbnail_url}"></img>
+            <h5 class="px-3">${userID.title}</h5>
+            <hr>
+        <div id="news-details" class="modal-body">
+            <p>${userID.details}</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    `
+
+}
