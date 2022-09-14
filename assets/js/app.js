@@ -5,8 +5,10 @@ const loadCategories = () => {
     fetch(url)
     .then(res => res.json())
     .then(data => newsTitle(data.data.news_category))
-
+    .catch(error => console.log('Error'))
 }
+
+// try catch error handeling in fetch
 
 loadCategories()
 
@@ -28,12 +30,12 @@ const newsTitle = newses => {
 
 // load dynamic category
 const loadCategory = categoryID => {
-    // console.log(categoryID);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryID}`
 
     fetch(url)
     .then(res => res.json())
     .then(data => displayCategory(data.data))
+    .catch(error => console.log('Error'))
 
     toggleSpinner(true)
 }
