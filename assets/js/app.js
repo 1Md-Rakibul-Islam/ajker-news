@@ -41,14 +41,19 @@ const loadCategory = categoryID => {
 
 // display the category
 
-const displayCategory = category => {
-    
+const displayCategory = category => { 
+  const itemsNum = document.getElementById("items-Found");
+  const num = category.length;
+  itemsNum.innerText = `${num <= 0 ? "0 item found" : num + " items found"}`;
+  //sorted most viewes
+  category.sort((a, b) => b.total_view - a.total_view);
+
     const cardsContainer = document.getElementById('cards-container');
     // clear old card
     cardsContainer.innerHTML = ``
 
     category.forEach(news => {
-        console.log(news.length);
+      // var newsLength = news.length
         // create card col
         const CardCol = document.createElement('div');
         CardCol.classList.add('col', 'card', 'p-0', 'mb-4');
