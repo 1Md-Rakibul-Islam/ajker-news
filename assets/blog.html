@@ -33,7 +33,95 @@
     <hr />
     <!-- nav bar end -->
     <main>
+      <section class="">
+        <h1 class="px-5 py-2 bg-info fw-bold text-center text-light mb-3">Blog</h1>
+        <div class="container mt-5">
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Difference between var, let, and const keyword in JavaScript
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <h5>Var,</h5>
+                    Before the advent of ES6, var declarations ruled. There are issues associated with variables declared with var, though. That is why it was necessary for new ways to declare variables to emerge. First, let's get to understand var more before we discuss those issues. <br />
+                  <br />
+                    <h5>let,</h5>
+                     is now preferred for variable declaration. It's no surprise as it comes as an improvement to var declarations. It also solves the problem with var that we just covered. Let's consider why this is so.
+                    <br>
+                    <h5>const,</h5>
+                    Variables declared with the const maintain constant values. const declarations share some similarities with let declarations.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour" >
+                  Difference between regular functions and arrow functions
+                </button>
+              </h2>
+              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample" >
+                <div class="accordion-body">
+                    Thus, we will get a run-time
+                  error on trying to construct a non-constructible arrow
+                  functions using the new keyword. Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword. Arrow functions a new feature introduced in ES6 enable writing
+                  concise functions in JavaScript. While both regular and arrow
+                  functions work in a similar manner, yet there are certain
+                  interesting differences between them, as discussed below.
+                  Regular functions created using function declarations or
+                  expressions are ‘constructible’ and ‘callable’. Since regular
+                  functions are constructible, they can be called using the
+                  ‘new’ keyword. However, the arrow functions are only
+                  ‘callable’ and not constructible.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" >
+                  .forEach(), .map(), .filter(), .find() What's the difference?
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample" >
+                <div class="accordion-body">
+                  (forEach) .forEach(), is used to execute the same code on
+                  every element in an array but does not change the array and it
+                  returns undefined. Example: In the example below we would use
+                  .forEach() to iterate over an array of food and log that we
+                  would want to eat each of them. <br />
+                  <br />
+                  (map) .map() executes the same code on every element in an
+                  array and returns a new array with the updated elements.
+                  Example: In the example below we would use .map to iterate
+                  over the elements of the cost array and divide each element by
+                  10, then assign our new array containing the new cost to the
+                  variable <br />
+                  <br />
 
+                  (filter) .filter() checks every element in an array to see if
+                  it meets a certain criteria and returns a new array with the
+                  elements that return truthy for the criteria. Example: In the
+                  example below we would use .filter to return values that are
+                  less than 200. <br />
+                  <br />
+
+                  (find) .find() is also a search function like the previous but
+                  they differ in one small detail — this function returns only
+                  one match in an array. If in an array is more than one result,
+                  the function will return the first that has matched. Just like
+                  the function .forEach(), this function also takes only 1
+                  parameter .find(callback). The parameter callback can take up
+                  to 3 parameters element, index & array (but only the element
+                  parameter is required, the rest is optional).
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- footer start -->

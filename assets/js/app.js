@@ -53,7 +53,8 @@ const displayCategory = category => {
     cardsContainer.innerHTML = ``
 
     category.forEach(news => {
-      // var newsLength = news.length
+        // const decription = news.details
+        // const sordDecription = decription.slice(0, 30);
         // create card col
         const CardCol = document.createElement('div');
         CardCol.classList.add('col', 'card', 'p-0', 'mb-4');
@@ -66,7 +67,7 @@ const displayCategory = category => {
           <div class="row align-content-center card-body h-100">
             <h4 class="card-title">${news.title ? news.title : 'Not Found'}</h4>
             <p class="card-text">
-                ${news.details ? news.details : 'Not Found'}
+                ${news.details ? news.details.slice(0, 800) + '...' : 'Not Found'}
             </p>
         
             <div class="d-flex flex-wrap justify-content-between list-unstyled align-items-center mt-3">
