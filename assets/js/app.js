@@ -14,7 +14,6 @@ loadCategories()
 // set news title and show the display
 const newsTitle = newses => {
     const newsUl = document.getElementById('news-menu-single')
-
     newses.forEach(news => {
         const createLI = document.createElement('li');
 
@@ -35,6 +34,8 @@ const loadCategory = categoryID => {
     fetch(url)
     .then(res => res.json())
     .then(data => displayCategory(data.data))
+
+    toggleSpinner(true)
 }
 
 
@@ -47,7 +48,7 @@ const displayCategory = category => {
     cardsContainer.innerHTML = ``
 
     category.forEach(news => {
-        // console.log(news);
+        console.log(news.length);
         // create card col
         const CardCol = document.createElement('div');
         CardCol.classList.add('col', 'card', 'p-0', 'mb-4');
@@ -97,6 +98,8 @@ const displayCategory = category => {
 
     })
 
+    toggleSpinner(false)
+
 }
 
 // modal fatch.
@@ -113,7 +116,7 @@ const loadModalDetails = async newsID => {
 // modal window function
 
 const displayModalDetails = userID => {
-    console.log(userID);
+    // console.log(userID);
 
     const modalContainer = document.getElementById('modal-contents');
     modalContainer.innerHTML = `
@@ -134,4 +137,17 @@ const displayModalDetails = userID => {
         </div>
     `
 
+}
+
+// spinner start
+const toggleSpinner = isLoding => {
+  const loaderSection = document.getElementById('loader-spinner');
+
+  if (isLoding) {
+    loaderSection.classList.remove('d-none');
+  }
+
+  else {
+    loaderSection.classList.add('d-none')
+  }
 }
