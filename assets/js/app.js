@@ -42,9 +42,9 @@ const loadCategory = categoryID => {
 // display the category
 
 const displayCategory = category => { 
-  const itemsNum = document.getElementById("items-Found");
-  const num = category.length;
-  itemsNum.innerText = `${num <= 0 ? "0 item found" : num + " items found"}`;
+  const itemsLengthContainer = document.getElementById("items-Found");
+  const itemsLength = category.length;
+  itemsLengthContainer.innerText = `${itemsLength <= 0 ? "0 item found" : itemsLength + " items found"}`;
   //sorted most viewes
   category.sort((a, b) => b.total_view - a.total_view);
 
@@ -91,7 +91,7 @@ const displayCategory = category => {
                 </ul>
               </div>
               <div class="px-1">
-              <button class="btn btn-primary fa fa-arrow-right" onclick="loadModalDetails('${news._id}')" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal"></button>
+              <button class="btn btn-info fa fa-arrow-right" onclick="loadModalDetails('${news._id}')" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal"></button>
               </div>
             </div>
           </div>
